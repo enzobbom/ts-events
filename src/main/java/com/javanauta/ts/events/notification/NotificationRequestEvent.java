@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.UUID;
 import com.javanauta.ts.events.shared.Event;
 
-public record NotificationRequestedEvent(
+public record NotificationRequestEvent(
         UUID eventId,
         Instant occurredAt,
         String taskId,
