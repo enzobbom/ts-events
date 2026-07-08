@@ -13,4 +13,15 @@ public record NotificationFailedEvent(
         NotificationFailureType failureType,
         String error
 ) implements Event {
+    public static NotificationFailedEvent create(String taskId,
+                                                 NotificationFailureType failureType,
+                                                 String error) {
+        return new NotificationFailedEvent(
+                UUID.randomUUID(),
+                Instant.now(),
+                taskId,
+                failureType,
+                error
+        );
+    }
 }
