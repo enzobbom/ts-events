@@ -13,7 +13,7 @@ public record NotificationFailedEvent(
         @NotBlank String taskId,
         @NotNull NotificationFailureType failureType,
         @NotBlank String error
-) implements Event {
+) implements NotificationEvent {
     public static NotificationFailedEvent create(String taskId,
                                                  NotificationFailureType failureType,
                                                  String error) {

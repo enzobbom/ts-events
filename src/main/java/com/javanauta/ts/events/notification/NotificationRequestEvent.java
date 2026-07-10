@@ -17,7 +17,7 @@ public record NotificationRequestEvent(
         @NotNull Instant taskScheduledDateTime,
         @NotBlank @Email String taskRecipient,
         @NotBlank @ValidZoneId String taskZoneId
-) implements Event {
+) implements NotificationEvent {
     public static NotificationRequestEvent create(String taskId,
                                                   String taskName,
                                                   String taskDescription,

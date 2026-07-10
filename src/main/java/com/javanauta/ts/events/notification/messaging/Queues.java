@@ -1,4 +1,4 @@
-package com.javanauta.ts.events.messaging;
+package com.javanauta.ts.events.notification.messaging;
 
 public final class Queues {
     public static final String NOTIFICATION_REQUEST = "notification.request.queue";

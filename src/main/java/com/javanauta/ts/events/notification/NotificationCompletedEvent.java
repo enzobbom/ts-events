@@ -10,7 +10,7 @@ public record NotificationCompletedEvent(
         @NotNull UUID eventId,
         @NotNull Instant occurredAt,
         @NotBlank String taskId
-) implements Event {
+) implements NotificationEvent {
     public static NotificationCompletedEvent create(String taskId) {
         return new NotificationCompletedEvent(
                 UUID.randomUUID(),
