@@ -1,15 +1,15 @@
 package com.javanauta.ts.events.notification;
 
-import com.javanauta.ts.events.notification.enums.NotificationFailureType;
-import com.javanauta.ts.events.shared.Event;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.Instant;
 import java.util.UUID;
 
 public record NotificationCompletedEvent(
-        UUID eventId,
-        Instant occurredAt,
-        String taskId
+        @NotNull UUID eventId,
+        @NotNull Instant occurredAt,
+        @NotBlank String taskId
 ) implements Event {
     public static NotificationCompletedEvent create(String taskId) {
         return new NotificationCompletedEvent(

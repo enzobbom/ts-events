@@ -1,4 +1,4 @@
-package com.javanauta.ts.events.shared;
+package com.javanauta.ts.events.notification;
 
 import java.time.Instant;
 import java.util.UUID;

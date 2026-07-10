@@ -1,18 +1,22 @@
 package com.javanauta.ts.events.notification;
 
+import com.javanauta.ts.events.notification.validation.ValidZoneId;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.Instant;
 import java.util.UUID;
-import com.javanauta.ts.events.shared.Event;
 
 public record NotificationRequestEvent(
-        UUID eventId,
-        Instant occurredAt,
-        String taskId,
-        String taskName,
+        @NotNull UUID eventId,
+        @NotNull Instant occurredAt,
+        @NotBlank String taskId,
+        @NotBlank String taskName,
         String taskDescription,
-        Instant taskScheduledDateTime,
-        String taskRecipient,
-        String taskZoneId
+        @NotNull Instant taskScheduledDateTime,
+        @NotBlank @Email String taskRecipient,
+        @NotBlank @ValidZoneId String taskZoneId
 ) implements Event {
     public static NotificationRequestEvent create(String taskId,
                                                   String taskName,
