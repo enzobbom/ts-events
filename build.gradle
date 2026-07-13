@@ -1,6 +1,5 @@
 plugins {
     id 'java-library'
-    id 'maven-publish'
 }
 
 group = "com.javanauta.ts"
@@ -14,16 +13,11 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+
+    withSourcesJar()
+    withJavadocJar()
 }
 
 dependencies {
-    api 'jakarta.validation:jakarta.validation-api:3.1.1'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
+    api "jakarta.validation:jakarta.validation-api:3.1.1"
 }
