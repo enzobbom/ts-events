@@ -1,25 +1,56 @@
 # ts-events [![](https://jitpack.io/v/enzobbom/ts-events.svg)](https://jitpack.io/#enzobbom/ts-events)
 
-Shared event contracts for the Task Scheduler platform.
+Shared event contracts used by the Task Scheduler Platform.
+
+This repository contains the event models shared between the platform's microservices. Artifacts are published through JitPack so the services can consume versioned contracts.
+
+---
 
 ## Installation
 
-``` yaml
-repositories {
-    maven {
-        url = uri("https://jitpack.io")
+### 1. Add the JitPack repository
+
+```gradle
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            url = uri("https://jitpack.io")
+
+            content {
+                includeGroup("com.github.enzobbom")
+            }
+        }
     }
 }
-
-implementation("com.github.enzobbom:ts-events:v1.0.0")
 ```
+
+### 2. Add the dependency
+
+```gradle
+implementation "com.github.enzobbom:ts-events:v1.0.0"
+```
+
+---
 
 ## Versioning
 
-Semantic Versioning.
+This project follows Semantic Versioning.
 
-Breaking changes increment the MAJOR version.
+| Change | Version |
+|---------|---------|
+| Bug fix | PATCH |
+| Backward-compatible event addition | MINOR |
+| Breaking event contract | MAJOR |
 
-Compatible changes increment the MINOR version.
+---
 
-Bug fixes increment the PATCH version.
+## Release process
+
+1. Update the version in `build.gradle`.
+2. Commit and push the changes.
+3. Create a GitHub Release with the corresponding version tag (for example `v1.0.0`).
+4. JitPack automatically builds and publishes the release.
